@@ -1,5 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 // Programer: Shane Burkhart         Student ID: 99999
+//	      Brendan Nulsen
 // Assignment: 9 "business"          Filename: main.cpp
 // Due Date: 11/12/13                Class: CS53, Section E
 // Desc: Header file for customer class
@@ -16,12 +17,14 @@ using namespace std;
 const char MAX_PURCHASES = 20;
 const int MAX_MONEY = 250;
 const int MIN_MONEY = 4;
+const int MAX_HAP = 101;
 
 class Customer{
   public:
     Customer():num_purchases(0), name("")
     {
       this->spending_money = rand() % (MAX_MONEY - MIN_MONEY + 1) + MIN_MONEY;
+      happiness = rand() % MAX_HAP;
     }
 
     Customer(string name, float money):num_purchases(0),
@@ -55,9 +58,11 @@ class Customer{
 
   private:
     short num_purchases;
-    string purchases[MAX_PURCHASES];
+    product purchases[MAX_PURCHASES];
     float spending_money;
     string name;
+    int happiness;
+    bool destination;
 };
 
 #endif
