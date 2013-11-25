@@ -19,6 +19,12 @@ const int MAX_MONEY = 250;
 const int MIN_MONEY = 4;
 const int MAX_HAP = 101;
 
+struct product
+{
+  string prodName;
+  float prodPrice;
+};
+
 class Customer{
   public:
     Customer():num_purchases(0), name("")
