@@ -39,7 +39,7 @@ class Customer{
     // Pre: Valid string
     // Post: Whether or not the purchase was made
     // Desc: Adds an item desc to customer purchases
-    bool purchase(const string desc);
+    bool buy_something(const string desc);
 
     // Pre: None
     // Post: Name of customer
@@ -56,12 +56,16 @@ class Customer{
     // Desc: Sets customer money
     void setMoney(const float money);
 
-    // Pre: None
-    // Post: None
-    // Desc: Prints a customer in the format specified
-    void print();
-
-
+    //pre: 
+    //post:
+    //desc:
+    void throw(const customer & c); 
+    
+    //pre:
+    //post:
+    //desc:
+    void rob(const customer & c);
+    
   private:
     short num_purchases;
     product purchases[MAX_PURCHASES];
@@ -69,6 +73,8 @@ class Customer{
     string name;
     int happiness;
     bool destination;
+    
+  friend ostream & operator << (ostream & stream, const customer & c);
 };
 
 #endif
