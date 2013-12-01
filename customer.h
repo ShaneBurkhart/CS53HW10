@@ -56,15 +56,17 @@ class Customer{
     // Desc: Sets customer money
     void setMoney(const float money);
 
-    //pre: 
-    //post:
-    //desc:
-    void throw(const customer & c); 
+    //pre: none.
+    //post: item taken from customer's array and happiness changes accordingly.
+    //desc: simulates customer throwing items at another customer.
+    void throws(const Customer & c); 
     
-    //pre:
-    //post:
-    //desc:
-    void rob(const customer & c);
+    //pre: none.
+    //post: item taken from one customer's array and added to the others. 
+    //desc: simulates customer robbing another customer.
+    void rob(const Customer & c);
+
+    friend ostream & operator << (ostream & stream, const Customer & c);
     
   private:
     short num_purchases;
@@ -72,9 +74,7 @@ class Customer{
     float spending_money;
     string name;
     int happiness;
-    bool destination;
-    
-  friend ostream & operator << (ostream & stream, const customer & c);
+    bool destination;    
 };
 
 #endif
