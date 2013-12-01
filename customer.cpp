@@ -12,7 +12,7 @@
 using namespace std;
 
 
-bool Customer::purchase(const string desc)
+bool Customer::buy_something(const string desc)
 {
   if(num_purchases >= MAX_PURCHASES)
     return false;
@@ -37,11 +37,21 @@ void Customer::setMoney(const float spending_money)
   return;
 }
 
-void Customer::print()
+void Customer::throws(const Customer & c1, const Customer & c2)
 {
-  cout << this->getName() << " has $" << this->getMoney() << " and purchases";
-  for(int i = 0 ; i < this->num_purchases ; i ++)
-    cout << " '" << this->purchases[i] << "'";
+  
+}
+
+void Customer::rob(const Customer & c1, const Customer & c2)
+{
+  
+}
+
+ostream & operator << (ostream & stream, const Customer & c)
+{
+  cout << c.name << " has $" << c.spending_money << " and purchases";
+  for(int i = 0; i < c.num_purchases; i++)
+    cout << " " << c.purchases[i];
   cout << endl;
-  return;
+  return stream;
 }
