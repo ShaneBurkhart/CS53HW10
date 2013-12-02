@@ -116,6 +116,22 @@ static void Customer::readCustomers(Customer customers[], int num_customers)
       customers[i].setInclination(true);
     fin.ignore(100, '\n');
   }
+  
+  Customer & Customer::operator=(Customer & dude)
+  {
+      Customer tcust;
+      for(int i = 0; i < dude.numPurchases; i++)
+      {
+        tcust.purchases[i] = dude.purchases[i];
+      }
+      tcust.spendingMoney = dude.spendingMoney;
+      tcust.name = dude.name;
+      tcust.happiness = dude.happiness;
+      tcust.inclination = dude.inclination;
+      tcust.numPurchases = dude.numPurchases;
+      return tcust;
+    }
+  
   return;
 }
 
