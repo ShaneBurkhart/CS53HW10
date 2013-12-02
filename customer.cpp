@@ -12,13 +12,21 @@
 using namespace std;
 
 
-bool Customer::buy_something(const string desc)
+bool Customer::buySomething(const string desc)
 {
-  if(num_purchases >= MAX_PURCHASES)
+  int choice;
+  choice = rand % 2;
+  if(choice)
+    return false;
+  if(!choice)
+  {
+    
+  }
+/*  if(num_purchases >= MAX_PURCHASES)
     return false;
   purchases[num_purchases] = desc;
   num_purchases ++;
-  return true;
+  return true; */
 }
 
 string Customer::getName() const
@@ -28,29 +36,35 @@ string Customer::getName() const
 
 float Customer::getMoney() const
 {
-  return this->spending_money;
+  return this->spendingMoney;
 }
 
-void Customer::setMoney(const float spending_money)
+void Customer::setMoney(const float spendingMoney)
 {
-  this->spending_money = spending_money;
+  this->spendingMoney = spendingMoney;
   return;
 }
 
-void Customer::throws(const Customer & c1, const Customer & c2)
+void Customer::setHappiness(const int happiness)
+{
+  this->happiness = happiness;
+  return;
+}
+
+void Customer::throws(const Customer & c)
 {
   
 }
 
-void Customer::rob(const Customer & c1, const Customer & c2)
+void Customer::rob(const Customer & c)
 {
   
 }
 
 ostream & operator << (ostream & stream, const Customer & c)
 {
-  cout << c.name << " has $" << c.spending_money << " and purchases";
-  for(int i = 0; i < c.num_purchases; i++)
+  cout << c.name << " has $" << c.spendingMoney << " and purchases";
+  for(int i = 0; i < c.numPurchases; i++)
     cout << " " << c.purchases[i];
   cout << endl;
   return stream;
