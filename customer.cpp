@@ -10,30 +10,25 @@
 #include<fstream>
 #include<string>
 #include<cstdlib>
+#include "business.h"
 #include "customer.h"
 using namespace std;
 
-bool Customer::buySomething(const Business & b)
+bool Customer::buySomething(const Procuct & p)
 {
-  int choice, randItem;
-
   choice = rand % 2; //50-50 at whether to buy or not.
   if(choice == 0)
     return false;
   if(choice == 1)
   {
-    randItem = (rand() % b.numItems);
-
-    if(spendingMoney >= b.items[randItem].price || numPurchases <= MAX_PURCHASES)
+    if(spendingMoney >= p.price && numPurchases < MAX_PURCHASES)
     {
-      purchases[numPurchases] = b.items[randItem];
-      spendingMoney -= b.items[randItem].price;
-      numPurchases++;
-      b.money += b.items[randItem].price;
+      purchases[numPurchases++] = p;
+      spendingMoney -= p.price;
       happiness += SUCCESS_BUY;
       return true;
     }
-    if(spendingMoney < b.items[randItem].price || numPurchases > MAX_PURCHASES)
+    else
     {
       happiness -= FAILED_BUY;
       return false;
@@ -99,7 +94,7 @@ void Customer::rob(const Customer & c) //c = victim
     numPurchases ++;
     c.numPurchases --;
   }
-  if(numPurchases >= MAX_PURCHASES && c.numPurchases != 0)
+  else if(numPurchases >= MAX_PURCHASES || c.numPurchases == 0)
   {
     happiness -= INTERACTION_PERP;
   } 
@@ -119,16 +114,16 @@ static void Customer::readCustomers(Customer customers[], int num_customers)
 {
   ifstream fin;
   fin.open(CUSTOMER_FILE);
-  for(int i = 0 ; i < num_customer ; i ++)
+  for(int i = 0 ; i < num_customers ; i ++)
   {
     string name;
     getline(fin, name, ',');
     customers[i].setName(name);
     fin.ignore(1);
     if(static_cast<char>(fin.peek()) == '-')
-      customer[i].setDestination(false);
+      customers[i].setInclination(false);
     else
-      customer[i].setDestination(true);
+      customers[i].setInclination(true);
     fin.ignore(100, '\n');
   }
   return;

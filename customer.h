@@ -22,10 +22,9 @@ const int MAX_HAP = 101;
 const int SUCCESS_BUY = 15;
 const int FAILED_BUY = 10;
 const int NUM_CUSTOMERS = 20;
-const int INTERACTION_PERP = 5;
 const int INTERACTION_VICTIM = 20;
 const int INTERACTION_ATTEMPT = 25;
-const string CUSTOMER_FILE = "people.txt";
+const char CUSTOMER_FILE[11] = "people.txt";
 
 class Business;
 
