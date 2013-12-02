@@ -10,14 +10,16 @@
 #define BUSINESS_H
 
 #include<string>
-#include "customer.h"
 #include "product.h"
+#include "customer.h"
 using namespace std;
 
 // Business constants
 const char MAX_ITEMS = 10;
 const char MAX_CUSTOMERS = 10;
 const float ITEM_PRICE = 40;
+
+class Customer;
 
 class Business
 {
@@ -33,7 +35,7 @@ class Business
     // Pre: Customer must be initialized
     // Post: None
     // Desc: Adds customer to business.  Simulates walking into a store
-    void addCustomer(Customer customer);
+    void addCustomer(Customer & customer);
 
     // Pre: None
     // Post: None
@@ -44,7 +46,8 @@ class Business
     //Post: Copies customers from the customers array and then sets num_cust
     //to zero.
     //Description: All customers are removed from the business.
-    void customersLeave(Customer c[], int num);
+    void customersLeave(Customer c[], int & num);
+
 
   private:
     string name;

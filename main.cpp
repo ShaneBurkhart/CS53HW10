@@ -8,8 +8,9 @@
 
 #include<fstream>
 #include<iostream>
-#include "customer.h"
 #include "business.h"
+#include "customer.h"
+#include "product.h"
 using namespace std;
 
 int main()
@@ -26,14 +27,14 @@ int main()
     cout << customers[i];
 
   Business moes("Moe's Bar", 0, NUM_CUSTOMERS);
-  Business comics("Comic Book Store, 0, NUM_CUSTOMERS);
+  Business comics("Comic Book Store", 0, NUM_CUSTOMERS);
   Customer street[20];
-  
+
   do
   {
     for(int i = 0; i < num; i++)
     {
-      if(street[i].happiness < MIN_HAP || street[i].happiness > MAX_HAP)
+      if(street[i].getHappiness < MIN_HAP || street[i].getHappiness > MAX_HAP)
       {
         street[num] = tempc[i];
         tempc[i] = street[i];
@@ -54,37 +55,37 @@ int main()
 
     moes.sellStuff();
     comics.sellStuff();
-    
+
     num = 0;
-    
+
     moes.customersLeave(street, num);
     comics.customersLeave(street, num);
-  
+
     for(int i = 0; i < num; i++)
     {
       rnum = rand()%num;
-    
+
       tempc[i] = street[i]
       street[i] = street[rnum]
       street[rnum] = tempc[i]
     }
-  
+
     for(int i = 0; i < num; i++)
     {
       rnum = rand()%num;
-    
-      if(street[i] = street[rnum])
+
+      if(getInclination.street[i] = getInclination.street[rnum])
       {
         street[i].rob(street[rnum])
       }
-    
-      else 
+
+      else
       {
         street[i].throw(street[rnum]);
       }
     }
   while(num > 1);
-  
+
   return 0;
 }
 
