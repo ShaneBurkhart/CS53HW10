@@ -15,6 +15,8 @@ struct Product
 {
   string name;
   float price;
+
+  friend ostream & operator << (ostream & stream, const Product & p);
 };
 
 #endif

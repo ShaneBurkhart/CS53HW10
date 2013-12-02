@@ -22,17 +22,17 @@ const int MAX_HAP = 101;
 const int SUCCESS_BUY = 15;
 const int FAILED_BUY = 10;
 const int NUM_CUSTOMERS = 20;
+const int INTERACTION_VICTIM = 20;
+const int INTERACTION_ATTEMPT = 25;
 const char CUSTOMER_FILE[11] = "people.txt";
+const int SUCCESS_THROW_PERP = 5;
+const int SUCCESS_THROW_VICTIM = 20;
+const int FAILED_THROW_PERP = 25;
 
 class Business;
 
 class Customer
 {
-  const int SUCCESS_THROW_PERP = 5;
-  const int SUCCESS_THROW_VICTIM = 20;
-  const int FAILED_THROW_PERP = 25;
-  const string CUSTOMER_FILE = "people.txt";
-
   public:
     Customer():numPurchases(0), name("")
     {
@@ -64,7 +64,7 @@ class Customer
     //pre: none.
     //post: returns happiness level.
     //desc: gets the happiness level of a customer.
-    void getInclination() const;
+    bool getInclination() const;
 
     // Pre: false is moe and true is cbg
     // Post: none
@@ -89,12 +89,12 @@ class Customer
     //pre: none.
     //post: item taken from customer's array and happiness changes accordingly.
     //desc: simulates customer throwing items at another customer.
-    void throws(const Customer & c);
+    void throws(Customer & c);
 
     //pre: none.
     //post: item taken from one customer's array and added to the others.
     //desc: simulates customer robbing another customer.
-    void rob(const Customer & c);
+    void rob(Customer & c);
 
     //pre: none.
     //post: customer output to screen.
@@ -105,23 +105,8 @@ class Customer
     //post: none
     //desc: reads customers in from file and sets names and inclinations
     static void readCustomers(Customer customers[], int num_customers);
-    
-    Customer & Customer::operator=(Customer & dude)
-    {
-      Customer tcust;
-      for(int i = 0; i < dude.numPurchases; i++)
-      {
-        tcust.purchases[i] = dude.purchases[i];
-      }
-      tcust.spendingMoney = dude.spendingMoney;
-      tcust.name = dude.name;
-      tcust.happiness = dude.happiness;
-      tcust.inclination = dude.inclination;
-      tcust.numPurchases = dude.numPurchases;
-      return tcust;
-    }
 
-
+    Customer & Customer::operator = (Customer & dude);
 
   private:
     short numPurchases;
