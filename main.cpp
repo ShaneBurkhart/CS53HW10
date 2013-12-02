@@ -13,6 +13,7 @@ using namespace std;
 
 int main(){
   Customer customers[20];
+  int num = 0;
 
   Customer::readCustomers(customers, 20);
 
@@ -20,51 +21,57 @@ int main(){
     cout << customers[i];
 
   return 0;
-  /*Business moes("Moe's Bar", 0, 20);
+  Business moes("Moe's Bar", 0, 20);
   Business comics("Comic Book Store, 0, 20);
   Customer street[20];
-
-  for(int i = 0; i < num_customers; i++)
+  
+  do
   {
-    if(inclination = false)
+    for(int i = 0; i < num_customers; i++)
     {
-      moes.addCustomer(street[i]);
+      if(inclination = false)
+      {
+        moes.addCustomer(street[i]);
+      }
+
+      else
+      {
+        comics.addCustomer(street[i]);
+      }
     }
 
-    else
+    moes.sellStuff();
+    comics.sellStuff();
+  
+    moes.customersLeave(street, num);
+    comics.customersLeave(street, num);
+  
+    for(int i = 0; i < num; i++)
     {
-      comics.addCustomer(street[i]);
+      rnum = rand()%num;
+    
+      tempc[i] = street[i]
+      street[i] = street[rnum]
+      street[rnum] = tempc[i]
     }
-  }
-
-  moes.sellStuff();
-  comics.sellStuff();
   
-  int num = 0;
-  
-  moes.customersLeave(street, num);
-  comics.customersLeave(street, num);
-  
-  for(int i = 0; i < num; i++)
-  {
-    rnum = rand()%num;
-    
-    tempc[i] = custs[i]
-    custs[i] = custs[rnum]
-    custs[rnum] = tempc[i]
-  }
-  
-  for(int i = 0; i < num; i++)
-  {
-    rnum = rand()%num;
-    
-    if(inclination.custs[i] = inclination.custs[rnum])
+    for(int i = 0; i < num; i++)
     {
-      Customer.rob(custs[i], custs[rnum]);
-    }
+      rnum = rand()%num;
     
-    else 
+      if(street[i] = street[rnum])
+      {
+        street[i].rob(street[rnum])
+      }
+    
+      else 
+      {
+        street[i].throw(street[rnum]);
+      }
+    }
+  while(num > 1);
   
+  return 0;
 }
 
 
