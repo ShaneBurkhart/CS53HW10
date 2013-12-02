@@ -29,7 +29,7 @@ Business::Business(string name, float money, string f_name)
   file.close();
 }
 
-void Business::enterCustomer(Customer customer)
+void Business::addCustomer(Customer customer)
 {
   if(this->num_customers < MAX_CUSTOMERS)
     customers[this->num_customers++] = customer;
