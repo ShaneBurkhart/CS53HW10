@@ -19,6 +19,8 @@ const char MAX_PURCHASES = 20;
 const int MAX_MONEY = 250;
 const int MIN_MONEY = 4;
 const int MAX_HAP = 101;
+const int SUCCESS_BUY = 15;
+const int FAILED_BUY = 10;
 
 class Customer{
   public:
@@ -37,7 +39,7 @@ class Customer{
     // Pre: Valid string
     // Post: Whether or not the purchase was made
     // Desc: Adds an item desc to customer purchases
-    bool buySomething(const string desc);
+    bool buySomething(const Business & b);
 
     // Pre: None
     // Post: Name of customer

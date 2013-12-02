@@ -12,21 +12,35 @@
 using namespace std;
 
 
-bool Customer::buySomething(const string desc)
+bool Customer::buySomething(const Business & b)
 {
-  int choice;
-  choice = rand % 2;
+  int choice, randItem;
+  float tempMoney;
+  
+  choice = rand % 2; //50-50 at whether to buy or not.
   if(choice)
     return false;
   if(!choice)
   {
+    randItem = (rand() % b.numItems);
+    tempMoney = getMoney();
     
+    if(tempMoney >= b.items[randItem].price || numPurchases <= MAX_PURCHASES)
+    {
+      purchases[numPurchases] = b.items[randItem];
+      tempMoney -= b.items[randItem].price;
+      setMoney(tempMoney);
+      numPurchases++;
+      b.money += b.items[randItem].price;
+      happiness += SUCCESS_BUY;
+      return true;
+    }
+    if(tempMoney < b.items[randItem].price || numPurchases > MAX_PURCHASES)
+    {
+      happiness -= FAILED_BUY;
+      return false;
+    }
   }
-/*  if(num_purchases >= MAX_PURCHASES)
-    return false;
-  purchases[num_purchases] = desc;
-  num_purchases ++;
-  return true; */
 }
 
 string Customer::getName() const

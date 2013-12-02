@@ -37,7 +37,7 @@ class Customer{
     // Pre: Valid string
     // Post: Whether or not the purchase was made
     // Desc: Adds an item desc to customer purchases
-    bool buy_something(const string desc);
+    bool buySomething(const Business & b);
 
     // Pre: None
     // Post: Name of customer
@@ -72,9 +72,9 @@ class Customer{
     friend ostream & operator << (ostream & stream, const Customer & c);
 
   private:
-    short num_purchases;
+    short numPurchases;
     product purchases[MAX_PURCHASES];
-    float spending_money;
+    float spendingMoney;
     string name;
     int happiness;
     bool inclination;
