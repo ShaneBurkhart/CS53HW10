@@ -10,6 +10,7 @@
 
 #include<string>
 #include "customer.h"
+#include "product.h"
 using namespace std;
 
 // Business constants
@@ -20,7 +21,7 @@ const float ITEM_PRICE = 40;
 class Business
 {
   public:
-    Business():name(""), money(0), num_items(0), num_customers(0){};
+    Business():name(""), money(0), numItems(0), numCustomers(0){};
     Business(string name, float money, string f_name);
 
     // Pre: None
@@ -37,20 +38,20 @@ class Business
     // Post: None
     // Desc: Sells a random item to everyone in store if has money
     void sellStuff();
-    
+
     //Pre: None
     //Post: Copies customers from the customers array and then sets num_cust
     //to zero.
     //Description: All customers are removed from the business.
-    void customersLeave(Customer c[], int num_customers);
+    void customersLeave(Customer c[], int num);
 
   private:
     string name;
     float money;
-    product items[MAX_ITEMS];
+    Product items[MAX_ITEMS];
     Customer customers[MAX_CUSTOMERS];
-    short num_items;
-    short num_customers;
+    short numItems;
+    short numCustomers;
 };
 
 #endif
