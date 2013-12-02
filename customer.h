@@ -28,7 +28,10 @@ class Customer{
     }
 
     Customer(string name, float money):num_purchases(0),
-      spending_money(money), name(name){}
+      spending_money(money), name(name)
+    {
+      happiness = rand() % MAX_HAP;
+    }
 
     // Pre: Valid string
     // Post: Whether or not the purchase was made
