@@ -24,8 +24,8 @@ Business::Business(string name, float money, string f_name)
   if(!file)
     return;
   string buffer;
-  while(getline(file, buffer) && num_items < MAX_ITEMS)
-    items[this->num_items++] = buffer;
+  //while(getline(file, buffer) && num_items < MAX_ITEMS)
+    //items[this->num_items++] = buffer;
   file.close();
 }
 
@@ -74,6 +74,6 @@ void customersLeave(Customer c[], int num_customers)
     c[i] = customers[i];
     num_customers = 0;
   }
-  
+
   return;
-} 
+}

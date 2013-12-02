@@ -13,12 +13,12 @@
 using namespace std;
 
 
-bool Customer::buy_something(const string desc)
+bool Customer::buySomething(const string desc)
 {
-  if(num_purchases >= MAX_PURCHASES)
+  if(numPurchases >= MAX_PURCHASES)
     return false;
-  purchases[num_purchases] = desc;
-  num_purchases ++;
+  purchases[numPurchases] = desc;
+  numPurchases ++;
   return true;
 }
 
@@ -29,16 +29,16 @@ string Customer::getName() const
 
 float Customer::getMoney() const
 {
-  return this->spending_money;
+  return this->spendingMoney;
 }
 
-void setName(string name)
+void Customer::setName(string name)
 {
   this->name = name;
   return;
 }
 
-void setInclination(bool inclination)
+void Customer::setInclination(bool inclination)
 {
   this->inclination = inclination;
   return;
@@ -46,7 +46,7 @@ void setInclination(bool inclination)
 
 void Customer::setMoney(const float spending_money)
 {
-  this->spending_money = spending_money;
+  this->spendingMoney = spending_money;
   return;
 }
 
@@ -62,14 +62,14 @@ void Customer::rob(const Customer & c1, const Customer & c2)
 
 ostream & operator << (ostream & stream, const Customer & c)
 {
-  cout << c.name << " has $" << c.spending_money << " and purchases";
-  for(int i = 0; i < c.num_purchases; i++)
+  cout << c.name << " has $" << c.spendingMoney << " and purchases";
+  for(int i = 0; i < c.numPurchases; i++)
     cout << " " << c.purchases[i];
   cout << endl;
   return stream;
 }
 
-static void read_customers(customer customers[], int num_customers)
+static void Customer::readCustomers(Customer customers[], int num_customers)
 {
   ifstream fin;
   fin.open(CUSTOMER_FILE);
@@ -80,9 +80,9 @@ static void read_customers(customer customers[], int num_customers)
     customers[i].setName(name);
     fin.ignore(1);
     if(static_cast<char>(fin.peek()) == '-')
-
+      customer[i].setDestination(false);
     else
-
+      customer[i].setDestination(true);
     fin.ignore(100, '\n');
   }
   return;

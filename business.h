@@ -10,6 +10,7 @@
 
 #include<string>
 #include "customer.h"
+#include "product.h"
 using namespace std;
 
 // Business constants
@@ -47,7 +48,7 @@ class Business
   private:
     string name;
     float money;
-    product items[MAX_ITEMS];
+    Product items[MAX_ITEMS];
     Customer customers[MAX_CUSTOMERS];
     short num_items;
     short num_customers;
