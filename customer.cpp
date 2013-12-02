@@ -7,6 +7,7 @@
 //
 
 #include<iostream>
+#include<fstream>
 #include<string>
 #include "customer.h"
 using namespace std;
@@ -31,6 +32,12 @@ float Customer::getMoney() const
   return this->spending_money;
 }
 
+void setName(string name)
+{
+  this->name = name;
+  return;
+}
+
 void Customer::setMoney(const float spending_money)
 {
   this->spending_money = spending_money;
@@ -39,12 +46,12 @@ void Customer::setMoney(const float spending_money)
 
 void Customer::throws(const Customer & c1, const Customer & c2)
 {
-  
+
 }
 
 void Customer::rob(const Customer & c1, const Customer & c2)
 {
-  
+
 }
 
 ostream & operator << (ostream & stream, const Customer & c)
@@ -55,3 +62,25 @@ ostream & operator << (ostream & stream, const Customer & c)
   cout << endl;
   return stream;
 }
+
+static void read_customers(customer customers[], int num_customers)
+{
+  ifstream fin;
+  fin.open(CUSTOMER_FILE);
+  for(int i = 0 ; i < num_customer ; i ++)
+  {
+    string name;
+    getline(fin, name, ',');
+    customers[i].setName(name);
+    fin.ignore(1);
+    if(static_cast<char>(fin.peek()) == '-')
+
+    else
+
+    fin.ignore(100, '\n');
+  }
+  return;
+}
+
+
+

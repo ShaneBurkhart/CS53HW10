@@ -18,6 +18,8 @@ const char MAX_PURCHASES = 20;
 const int MAX_MONEY = 250;
 const int MIN_MONEY = 4;
 const int MAX_HAP = 101;
+const int NUM_CUSTOMERS = 20;
+const string CUSTOMER_FILE = "people.txt";
 
 class Customer{
   public:
@@ -43,6 +45,11 @@ class Customer{
     // Desc: Gets customer name
     string getName() const;
 
+    // Pre: valid string
+    // Post: none
+    // Desc: Sets customer name
+    void setName(string name);
+
     // Pre: None
     // Post: Money customer has
     // Desc: Gets customer money
@@ -64,6 +71,13 @@ class Customer{
     void rob(const Customer & c);
 
     friend ostream & operator << (ostream & stream, const Customer & c);
+
+    //pre: Customer array with num of customers passed in
+    //post: none
+    //desc: reads customers in from file and sets names and inclinations
+    static void read_customers(customer customers[], int num_customers);
+
+
 
   private:
     short num_purchases;
