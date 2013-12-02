@@ -12,63 +12,80 @@
 #include "product.h"
 using namespace std;
 
-int main(){
-  Customer customers[20];
+int main()
+{
+  const int MAX_HAP = 90;
+  const int MIN_HAP = 10;
+  Customer customers[NUM_CUSTOMERS];
+  Customer tempc[NUM_CUSTOMERS];
+  int num = NUM_CUSTOMERS;
 
-  Customer::readCustomers(customers, 20);
+  Customer::readCustomers(customers, NUM_CUSTOMERS);
 
-  for(int i = 0 ; i < 20 ; i ++)
+  for(int i = 0 ; i < NUM_CUSTOMERS ; i ++)
     cout << customers[i];
 
-  return 0;
-
-  /*Business moes("Moe's Bar", 0, 20);
-  Business comics("Comic Book Store, 0, 20);
+  Business moes("Moe's Bar", 0, NUM_CUSTOMERS);
+  Business comics("Comic Book Store", 0, NUM_CUSTOMERS);
   Customer street[20];
 
-  for(int i = 0; i < num_customers; i++)
+  do
   {
-    if(inclination = false)
+    for(int i = 0; i < num; i++)
     {
-      moes.addCustomer(street[i]);
+      if(street[i].happiness < MIN_HAP || street[i].happiness > MAX_HAP)
+      {
+        street[num] = tempc[i];
+        tempc[i] = street[i];
+        num--;
+      }
+    for(int i = 0; i < num; i++)
+    {
+      if(inclination = false)
+      {
+        moes.addCustomer(street[i]);
+      }
+
+      else
+      {
+        comics.addCustomer(street[i]);
+      }
     }
 
-    else
+    moes.sellStuff();
+    comics.sellStuff();
+
+    num = 0;
+
+    moes.customersLeave(street, num);
+    comics.customersLeave(street, num);
+
+    for(int i = 0; i < num; i++)
     {
-      comics.addCustomer(street[i]);
-    }
-  }
+      rnum = rand()%num;
 
-  moes.sellStuff();
-  comics.sellStuff();
-
-  int num = 0;
-
-  moes.customersLeave(street, num);
-  comics.customersLeave(street, num);
-
-  for(int i = 0; i < num; i++)
-  {
-    rnum = rand()%num;
-
-    tempc[i] = custs[i]
-    custs[i] = custs[rnum]
-    custs[rnum] = tempc[i]
-  }
-
-  for(int i = 0; i < num; i++)
-  {
-    rnum = rand()%num;
-
-    if(inclination.custs[i] = inclination.custs[rnum])
-    {
-      Customer.rob(custs[i], custs[rnum]);
+      tempc[i] = street[i]
+      street[i] = street[rnum]
+      street[rnum] = tempc[i]
     }
 
-    else
+    for(int i = 0; i < num; i++)
+    {
+      rnum = rand()%num;
 
-  */
+      if(street[i] = street[rnum])
+      {
+        street[i].rob(street[rnum])
+      }
 
+      else
+      {
+        street[i].throw(street[rnum]);
+      }
+    }
+  while(num > 1);
+
+  return 0;
 }
 
 
