@@ -7,10 +7,10 @@
 //
 
 #include<iostream>
+#include<fstream>
 #include<string>
 #include "customer.h"
 using namespace std;
-
 
 bool Customer::buySomething(const Business & b)
 {
@@ -50,36 +50,64 @@ string Customer::getName() const
 
 float Customer::getMoney() const
 {
-  return this->spendingMoney;
+  return this->spending_money;
 }
 
-void Customer::setMoney(const float spendingMoney)
+void setName(string name)
 {
-  this->spendingMoney = spendingMoney;
+  this->name = name;
   return;
 }
 
-void Customer::setHappiness(const int happiness)
+void setInclination(bool inclination)
 {
-  this->happiness = happiness;
+  this->inclination = inclination;
   return;
 }
 
-void Customer::throws(const Customer & c)
+void Customer::setMoney(const float spending_money)
 {
-  
+  this->spending_money = spending_money;
+  return;
 }
 
-void Customer::rob(const Customer & c)
+void Customer::throws(const Customer & c1, const Customer & c2)
 {
-  
+
+}
+
+void Customer::rob(const Customer & c1, const Customer & c2)
+{
+
 }
 
 ostream & operator << (ostream & stream, const Customer & c)
 {
-  cout << c.name << " has $" << c.spendingMoney << " and purchases";
-  for(int i = 0; i < c.numPurchases; i++)
+  cout << c.name << " has $" << c.spending_money << " and purchases";
+  for(int i = 0; i < c.num_purchases; i++)
     cout << " " << c.purchases[i];
   cout << endl;
   return stream;
 }
+
+static void read_customers(customer customers[], int num_customers)
+{
+  ifstream fin;
+  fin.open(CUSTOMER_FILE);
+  for(int i = 0 ; i < num_customer ; i ++)
+  {
+    string name;
+    getline(fin, name, ',');
+    customers[i].setName(name);
+    fin.ignore(1);
+    if(static_cast<char>(fin.peek()) == '-')
+
+    else
+
+    fin.ignore(100, '\n');
+  }
+  return;
+}
+
+
+

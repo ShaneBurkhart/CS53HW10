@@ -36,13 +36,13 @@ class Business
     // Pre: None
     // Post: None
     // Desc: Sells a random item to everyone in store if has money
-    void sell_stuff();
+    void sellStuff();
     
     //Pre: None
     //Post: Copies customers from the customers array and then sets num_cust
     //to zero.
     //Description: All customers are removed from the business.
-    void customers_leave(Customer c[], int num_customers);
+    void customersLeave(Customer c[], int num_customers);
 
   private:
     string name;
