@@ -53,6 +53,11 @@ class Customer{
     // Desc: Sets customer name
     void setName(string name);
 
+    //pre: none.
+    //post: returns happiness level.
+    //desc: gets the happiness level of a customer.
+    void getInclination() const;
+    
     // Pre: false is moe and true is cbg
     // Post: none
     // Desc: Sets customer inclination

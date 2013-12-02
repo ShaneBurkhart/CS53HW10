@@ -22,7 +22,11 @@ const int MAX_HAP = 101;
 const int SUCCESS_BUY = 15;
 const int FAILED_BUY = 10;
 const int NUM_CUSTOMERS = 20;
+const int SUCCESS_THROW_PERP = 5;
+const int SUCCESS_THROW_VICTIM = 20;
+const int FAILED_THROW_PERP = 25;
 const string CUSTOMER_FILE = "people.txt";
+
 
 class Customer{
   public:

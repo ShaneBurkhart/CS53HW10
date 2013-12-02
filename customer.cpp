@@ -75,16 +75,25 @@ void Customer::setMoney(const float spending_money)
 
 void Customer::throws(const Customer & c) //c = victim
 {
-  Product
   if(numPurchases != 0)
   {
-    purchases
+    numPurchases--;
+    happiness += SUCCESS_THROW_PERP;
+    c.happiness -= SUCCESS_THROW_VICTIM;
   }
+  else if(numPurchases == 0)
+  {
+    happiness -= FAILED_THROW_PERP;
+  }
+  return;
 }
 
-void Customer::rob(const Customer & c)
+void Customer::rob(const Customer & c) //c = victim
 {
-
+  if(numPurchases < MAX_PURCHASES && c.numPurchases != 0)
+  {
+    
+  }
 }
 
 ostream & operator << (ostream & stream, const Customer & c)
