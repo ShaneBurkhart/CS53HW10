@@ -30,17 +30,19 @@ class Business{
     // Pre: Customer must be initialized
     // Post: None
     // Desc: Adds customer to business.  Simulates walking into a store
-    void enterCustomer(Customer customer);
+    void addCustomer(Customer customer);
 
     // Pre: None
     // Post: None
     // Desc: Sells a random item to everyone in store if has money
-    void makeASell();
+    void sell_stuff();
+    
+    Customer leave(Customer customers[MAX_CUSTOMERS], int num_customers);
 
   private:
     string name;
     float money;
-    string items[MAX_ITEMS];
+    product items[MAX_ITEMS];
     Customer customers[MAX_CUSTOMERS];
     short num_items;
     short num_customers;
