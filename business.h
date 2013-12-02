@@ -21,7 +21,7 @@ const float ITEM_PRICE = 40;
 class Business
 {
   public:
-    Business():name(""), money(0), num_items(0), num_customers(0){};
+    Business():name(""), money(0), numItems(0), numCustomers(0){};
     Business(string name, float money, string f_name);
 
     // Pre: None
@@ -43,7 +43,7 @@ class Business
     //Post: Copies customers from the customers array and then sets num_cust
     //to zero.
     //Description: All customers are removed from the business.
-    void customersLeave(Customer c[], int num_customers);
+    void customersLeave(Customer c[], int num);
 
   private:
     string name;
