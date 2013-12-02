@@ -39,7 +39,8 @@ class Business
     void sell_stuff();
     
     //Pre: None
-    //Post: Copies customers from the customers array and then sets num_cust to zero.
+    //Post: Copies customers from the customers array and then sets num_cust
+    //to zero.
     //Description: All customers are removed from the business.
     void customers_leave(Customer c[], int num_customers);
 
