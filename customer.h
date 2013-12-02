@@ -22,6 +22,8 @@ const int MAX_HAP = 101;
 const int SUCCESS_BUY = 15;
 const int FAILED_BUY = 10;
 const int NUM_CUSTOMERS = 20;
+const int INTERACTION_VICTIM = 20;
+const int INTERACTION_ATTEMPT = 25;
 const char CUSTOMER_FILE[11] = "people.txt";
 const int SUCCESS_THROW_PERP = 5;
 const int SUCCESS_THROW_VICTIM = 20;
@@ -62,7 +64,7 @@ class Customer
     //pre: none.
     //post: returns happiness level.
     //desc: gets the happiness level of a customer.
-    void getInclination() const;
+    bool getInclination() const;
 
     // Pre: false is moe and true is cbg
     // Post: none
