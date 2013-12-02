@@ -9,6 +9,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include "business.h"
 #include "customer.h"
 using namespace std;
 
@@ -70,7 +71,7 @@ void Customer::setMoney(const float spending_money)
 
 void Customer::throws(const Customer & c)
 {
-  
+
 }
 
 void Customer::rob(const Customer & c)
@@ -91,16 +92,16 @@ static void Customer::readCustomers(Customer customers[], int num_customers)
 {
   ifstream fin;
   fin.open(CUSTOMER_FILE);
-  for(int i = 0 ; i < num_customer ; i ++)
+  for(int i = 0 ; i < num_customers ; i ++)
   {
     string name;
     getline(fin, name, ',');
     customers[i].setName(name);
     fin.ignore(1);
     if(static_cast<char>(fin.peek()) == '-')
-      customer[i].setDestination(false);
+      customers[i].setInclination(false);
     else
-      customer[i].setDestination(true);
+      customers[i].setInclination(true);
     fin.ignore(100, '\n');
   }
   return;

@@ -9,8 +9,8 @@
 #include<iostream>
 #include<fstream>
 #include<cstdlib>
-#include "customer.h"
 #include "business.h"
+#include "customer.h"
 using namespace std;
 
 Business::Business(string name, float money, string f_name)
@@ -29,7 +29,7 @@ Business::Business(string name, float money, string f_name)
   file.close();
 }
 
-void Business::addCustomer(Customer customer)
+void Business::addCustomer(Customer & customer)
 {
   if(this->numCustomers < MAX_CUSTOMERS)
     customers[this->numCustomers++] = customer;

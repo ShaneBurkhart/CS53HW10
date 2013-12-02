@@ -7,8 +7,9 @@
 
 #include<fstream>
 #include<iostream>
-#include "customer.h"
 #include "business.h"
+#include "customer.h"
+#include "product.h"
 using namespace std;
 
 int main(){
@@ -20,6 +21,7 @@ int main(){
     cout << customers[i];
 
   return 0;
+
   /*Business moes("Moe's Bar", 0, 20);
   Business comics("Comic Book Store, 0, 20);
   Customer street[20];
@@ -39,32 +41,34 @@ int main(){
 
   moes.sellStuff();
   comics.sellStuff();
-  
+
   int num = 0;
-  
+
   moes.customersLeave(street, num);
   comics.customersLeave(street, num);
-  
+
   for(int i = 0; i < num; i++)
   {
     rnum = rand()%num;
-    
+
     tempc[i] = custs[i]
     custs[i] = custs[rnum]
     custs[rnum] = tempc[i]
   }
-  
+
   for(int i = 0; i < num; i++)
   {
     rnum = rand()%num;
-    
+
     if(inclination.custs[i] = inclination.custs[rnum])
     {
       Customer.rob(custs[i], custs[rnum]);
     }
-    
-    else 
-  
+
+    else
+
+  */
+
 }
 
 
