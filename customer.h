@@ -22,11 +22,10 @@ const int MAX_HAP = 101;
 const int SUCCESS_BUY = 15;
 const int FAILED_BUY = 10;
 const int NUM_CUSTOMERS = 20;
-const int SUCCESS_THROW_PERP = 5;
-const int SUCCESS_THROW_VICTIM = 20;
-const int FAILED_THROW_PERP = 25;
+const int INTERACTION_PERP = 5;
+const int INTERACTION_VICTIM = 20;
+const int INTERACTION_ATTEMPT = 25;
 const string CUSTOMER_FILE = "people.txt";
-
 
 class Customer{
   public:
@@ -60,7 +59,7 @@ class Customer{
     //pre: none.
     //post: returns happiness level.
     //desc: gets the happiness level of a customer.
-    void getInclination() const;
+    bool getInclination() const;
     
     // Pre: false is moe and true is cbg
     // Post: none
@@ -102,7 +101,7 @@ class Customer{
     //desc: reads customers in from file and sets names and inclinations
     static void readCustomers(Customer customers[], int num_customers);
 
-
+    
 
   private:
     short numPurchases;

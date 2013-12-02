@@ -9,7 +9,9 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<cstdlib>
 #include "customer.h"
+#include "business.h"
 using namespace std;
 
 bool Customer::buySomething(const Business & b)
@@ -62,7 +64,7 @@ void Customer::setInclination(bool inclination)
   return;
 }
 
-void Customer::getInclination() const
+bool Customer::getInclination() const
 {
  return inclination;
 }
@@ -75,24 +77,42 @@ void Customer::setMoney(const float spending_money)
 
 void Customer::throws(const Customer & c) //c = victim
 {
-  Product
   if(numPurchases != 0)
   {
-    purchases
+    numPurchases--;
+    happiness += INTERACTION_PERP;
+    c.happiness -= INTERACTION_VICTIM;
   }
+  else if(numPurchases == 0)
+  {
+    happiness -= FAILED_THROW_PERP;
+  }
+  return;
 }
 
-void Customer::rob(const Customer & c)
+void Customer::rob(const Customer & c) //c = victim
 {
-
+  if(numPurchases < MAX_PURCHASES && c.numPurchases != 0)
+  {
+    happiness += INTERACTION_ATTEMPT;
+    c.happiness -= INTERACTION_VICTIM;
+    purchases[numPurchases] = c.purchases[c.numPurchases];
+    numPurchases ++;
+    c.numPurchases --;
+  }
+  if(numPurchases >= MAX_PURCHASES && c.numPurchases != 0)
+  {
+    happiness -= INTERACTION_PERP;
+  } 
+  return;
 }
 
 ostream & operator << (ostream & stream, const Customer & c)
 {
-  cout << c.name << " has $" << c.spendingMoney << " and purchases";
+  stream << c.name << " has $" << c.spendingMoney << " and purchases";
   for(int i = 0; i < c.numPurchases; i++)
-    cout << " " << c.purchases[i];
-  cout << endl;
+    stream << " " << c.purchases[i];
+  stream << endl;
   return stream;
 }
 
