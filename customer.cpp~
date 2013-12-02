@@ -12,12 +12,9 @@
 #include "customer.h"
 using namespace std;
 
-
-<<<<<<< HEAD
 bool Customer::buySomething(const Business & b)
 {
   int choice, randItem;
-  float tempMoney;
   
   choice = rand % 2; //50-50 at whether to buy or not.
   if(choice)
@@ -43,15 +40,6 @@ bool Customer::buySomething(const Business & b)
       return false;
     }
   }
-=======
-bool Customer::buy_something(const string desc)
-{
-  if(num_purchases >= MAX_PURCHASES)
-    return false;
-  purchases[num_purchases] = desc;
-  num_purchases ++;
-  return true;
->>>>>>> 37f9a6ff1c9fbed9442a7e82a1f055fea5440ef2
 }
 
 string Customer::getName() const

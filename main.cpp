@@ -11,25 +11,32 @@
 #include "business.h"
 using namespace std;
 
-int main()
-{  
-  Business moes("Moe's Bar", 0, 20);
+int main(){
+  Customer customers[20];
+
+  Customer::readCustomers(customers, 20);
+
+  for(int i = 0 ; i < 20 ; i ++)
+    cout << customers[i];
+
+  return 0;
+  /*Business moes("Moe's Bar", 0, 20);
   Business comics("Comic Book Store, 0, 20);
   Customer street[20];
-  
+
   for(int i = 0; i < num_customers; i++)
   {
     if(inclination = false)
     {
       moes.addCustomer(street[i]);
     }
-    
+
     else
     {
       comics.addCustomer(street[i]);
     }
   }
-  
+
   moes.sellStuff();
   comics.sellStuff();
   
@@ -57,9 +64,6 @@ int main()
     }
     
     else 
-  
-    
-  
   
 }
 

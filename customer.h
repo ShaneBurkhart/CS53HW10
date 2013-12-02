@@ -19,24 +19,21 @@ const char MAX_PURCHASES = 20;
 const int MAX_MONEY = 250;
 const int MIN_MONEY = 4;
 const int MAX_HAP = 101;
-<<<<<<< HEAD
 const int SUCCESS_BUY = 15;
 const int FAILED_BUY = 10;
-=======
 const int NUM_CUSTOMERS = 20;
 const string CUSTOMER_FILE = "people.txt";
->>>>>>> 37f9a6ff1c9fbed9442a7e82a1f055fea5440ef2
 
 class Customer{
   public:
-    Customer():num_purchases(0), name("")
+    Customer():numPurchases(0), name("")
     {
-      this->spending_money = rand() % (MAX_MONEY - MIN_MONEY + 1) + MIN_MONEY;
+      this->spendingMoney = rand() % (MAX_MONEY - MIN_MONEY + 1) + MIN_MONEY;
       happiness = rand() % MAX_HAP;
     }
 
-    Customer(string name, float money):num_purchases(0),
-      spending_money(money), name(name)
+    Customer(string name, float money):numPurchases(0),
+      spendingMoney(money), name(name)
     {
       happiness = rand() % MAX_HAP;
     }
@@ -70,7 +67,7 @@ class Customer{
     // Post: None
     // Desc: Sets customer money
     void setMoney(const float money);
-    
+
     //pre: between 0 - 100.
     //post: happiness set to value.
     //desc: sets the happiness of customer.
@@ -91,13 +88,13 @@ class Customer{
     //pre: Customer array with num of customers passed in
     //post: none
     //desc: reads customers in from file and sets names and inclinations
-    static void read_customers(customer customers[], int num_customers);
+    static void readCustomers(Customer customers[], int num_customers);
 
 
 
   private:
     short numPurchases;
-    product purchases[MAX_PURCHASES];
+    Product purchases[MAX_PURCHASES];
     float spendingMoney;
     string name;
     int happiness;
