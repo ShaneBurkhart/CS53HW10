@@ -19,12 +19,6 @@ const int MAX_MONEY = 250;
 const int MIN_MONEY = 4;
 const int MAX_HAP = 101;
 
-struct product
-{
-  string prodName;
-  float prodPrice;
-};
-
 class Customer{
   public:
     Customer():num_purchases(0), name("")
@@ -59,22 +53,22 @@ class Customer{
     //pre: none.
     //post: item taken from customer's array and happiness changes accordingly.
     //desc: simulates customer throwing items at another customer.
-    void throws(const Customer & c); 
-    
+    void throws(const Customer & c);
+
     //pre: none.
-    //post: item taken from one customer's array and added to the others. 
+    //post: item taken from one customer's array and added to the others.
     //desc: simulates customer robbing another customer.
     void rob(const Customer & c);
 
     friend ostream & operator << (ostream & stream, const Customer & c);
-    
+
   private:
     short num_purchases;
     product purchases[MAX_PURCHASES];
     float spending_money;
     string name;
     int happiness;
-    bool destination;    
+    bool destination;
 };
 
 #endif
