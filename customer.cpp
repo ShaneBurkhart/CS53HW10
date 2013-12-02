@@ -62,15 +62,24 @@ void Customer::setInclination(bool inclination)
   return;
 }
 
+void Customer::getInclination() const
+{
+ return inclination;
+}
+
 void Customer::setMoney(const float spending_money)
 {
   this->spendingMoney = spending_money;
   return;
 }
 
-void Customer::throws(const Customer & c)
+void Customer::throws(const Customer & c) //c = victim
 {
-  
+  Product
+  if(numPurchases != 0)
+  {
+    purchases
+  }
 }
 
 void Customer::rob(const Customer & c)
