@@ -17,8 +17,8 @@ Business::Business(string name, float money, string f_name)
 {
   this->name = name;
   this->money = money;
-  this->num_items = 0;
-  this->num_customers = 0;
+  this->numItems = 0;
+  this->numCustomers = 0;
   ifstream file;
   file.open(f_name.c_str());
   if(!file)
@@ -31,18 +31,18 @@ Business::Business(string name, float money, string f_name)
 
 void Business::addCustomer(Customer customer)
 {
-  if(this->num_customers < MAX_CUSTOMERS)
-    customers[this->num_customers++] = customer;
+  if(this->numCustomers < MAX_CUSTOMERS)
+    customers[this->numCustomers++] = customer;
   return;
 }
 
 void Business::sellStuff()
 {
-  if(!this->num_items)
+  if(!this->numItems)
     return;
-  int index = rand() % this->num_items;
+  int index = rand() % this->numItems;
   cout << "Something" << endl;
-  for(int i = 0 ; i < this->num_customers ; i ++)
+  for(int i = 0 ; i < this->numCustomers ; i ++)
   {
     if(customers[i].getMoney() >= ITEM_PRICE &&
       customers[i].buySomething(items[index]))
@@ -59,21 +59,20 @@ void Business::print()
   cout << "Business Name: " << this->name << endl;
   cout << "Money: " << this->money << endl;
   cout << "Items: " << endl;
-  for(int i = 0 ; i < this->num_items ; i ++)
+  for(int i = 0 ; i < this->numItems ; i ++)
     cout << this->items[i] << endl;
   cout << "Customers: " << endl;
-  for(int i = 0 ; i < this->num_customers ; i ++)
+  for(int i = 0 ; i < this->numCustomers ; i ++)
     this->customers[i].print();
   return;
 }
 
-void customersLeave(Customer c[], int num_customers)
+void Business::customersLeave(Customer c[], int & num)
 {
-  for(int i = 0; i < num_customers; i++)
+  for(int i = 0; i < numCusomers; i++)
   {
-    c[i] = customers[i];
-    num_customers = 0;
+    c[num++] = customers[i];
   }
-
+  num_customers = 0;
   return;
 }

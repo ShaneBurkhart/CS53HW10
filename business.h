@@ -38,7 +38,7 @@ class Business
     // Post: None
     // Desc: Sells a random item to everyone in store if has money
     void sellStuff();
-    
+
     //Pre: None
     //Post: Copies customers from the customers array and then sets num_cust
     //to zero.
@@ -50,8 +50,8 @@ class Business
     float money;
     Product items[MAX_ITEMS];
     Customer customers[MAX_CUSTOMERS];
-    short num_items;
-    short num_customers;
+    short numItems;
+    short numCustomers;
 };
 
 #endif
