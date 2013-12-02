@@ -28,6 +28,11 @@ class Business;
 
 class Customer
 {
+  const int SUCCESS_THROW_PERP = 5;
+  const int SUCCESS_THROW_VICTIM = 20;
+  const int FAILED_THROW_PERP = 25;
+  const string CUSTOMER_FILE = "people.txt";
+
   public:
     Customer():numPurchases(0), name("")
     {
@@ -60,7 +65,7 @@ class Customer
     //post: returns happiness level.
     //desc: gets the happiness level of a customer.
     void getInclination() const;
-    
+
     // Pre: false is moe and true is cbg
     // Post: none
     // Desc: Sets customer inclination
