@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////////
 // Programer: Shane Burkhart         Student ID: 99999
 //	      Brendan Nulsen
-// Assignment: 9 "business"          Filename: main.cpp
-// Due Date: 11/12/13                Class: CS53, Section E
+// Assignment: 10 "business"          Filename: main.cpp
+// Due Date: 12/4/13                Class: CS53, Section E
 // Desc: Header file for customer class
 //
 
@@ -11,6 +11,7 @@
 
 #include<string>
 #include<cstdlib>
+#include "product.h"
 using namespace std;
 
 // Customer constants
@@ -38,7 +39,7 @@ class Customer{
     // Pre: Valid string
     // Post: Whether or not the purchase was made
     // Desc: Adds an item desc to customer purchases
-    bool buy_something(const string desc);
+    bool buySomething(const string desc);
 
     // Pre: None
     // Post: Name of customer
@@ -64,6 +65,11 @@ class Customer{
     // Post: None
     // Desc: Sets customer money
     void setMoney(const float money);
+    
+    //pre: between 0 - 100.
+    //post: happiness set to value.
+    //desc: sets the happiness of customer.
+    void setHappiness(const int happiness);
 
     //pre: none.
     //post: item taken from customer's array and happiness changes accordingly.
@@ -85,12 +91,12 @@ class Customer{
 
 
   private:
-    short num_purchases;
+    short numPurchases;
     product purchases[MAX_PURCHASES];
-    float spending_money;
+    float spendingMoney;
     string name;
     int happiness;
-    bool destination;
+    bool inclination;
 };
 
 #endif
