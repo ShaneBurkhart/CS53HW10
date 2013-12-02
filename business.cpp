@@ -45,7 +45,7 @@ void Business::sellStuff()
   for(int i = 0 ; i < this->num_customers ; i ++)
   {
     if(customers[i].getMoney() >= ITEM_PRICE &&
-      customers[i].purchase(items[index]))
+      customers[i].buySomething(items[index]))
     {
       this->money += ITEM_PRICE;
       customers[i].setMoney(customers[i].getMoney() - ITEM_PRICE);

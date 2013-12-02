@@ -39,7 +39,7 @@ class Customer{
     // Pre: Valid string
     // Post: Whether or not the purchase was made
     // Desc: Adds an item desc to customer purchases
-    bool buySomething(const string desc);
+    bool buySomething(const Product desc);
 
     // Pre: None
     // Post: Name of customer
