@@ -13,12 +13,10 @@
 #include "customer.h"
 using namespace std;
 
-bool Customer::buySomething(const Procuct & p)
+bool Customer::buySomething(const Product & p)
 {
-  choice = rand % 2; //50-50 at whether to buy or not.
-  if(choice == 0)
-    return false;
-  if(choice == 1)
+  int choice = rand() % 2; //50-50 at whether to buy or not.
+  if(choice)
   {
     if(spendingMoney >= p.price && numPurchases < MAX_PURCHASES)
     {
@@ -33,6 +31,7 @@ bool Customer::buySomething(const Procuct & p)
       return false;
     }
   }
+  return false;
 }
 
 string Customer::getName() const
@@ -68,7 +67,7 @@ void Customer::setMoney(const float spending_money)
   return;
 }
 
-void Customer::throws(const Customer & c) //c = victim
+void Customer::throws(Customer & c) //c = victim
 {
   if(numPurchases != 0)
   {
@@ -78,12 +77,12 @@ void Customer::throws(const Customer & c) //c = victim
   }
   else if(numPurchases == 0)
   {
-    happiness -= FAILED_THROW_PERP;
+    this->happiness -= FAILED_THROW_PERP;
   }
   return;
 }
 
-void Customer::rob(const Customer & c) //c = victim
+void Customer::rob(Customer & c) //c = victim
 {
   if(numPurchases < MAX_PURCHASES && c.numPurchases != 0)
   {
@@ -100,7 +99,7 @@ ostream & operator << (ostream & stream, const Customer & c)
   return stream;
 }
 
-static void Customer::readCustomers(Customer customers[], int num_customers)
+void Customer::readCustomers(Customer customers[], int num_customers)
 {
   ifstream fin;
   fin.open(CUSTOMER_FILE);
@@ -118,6 +117,22 @@ static void Customer::readCustomers(Customer customers[], int num_customers)
   }
   return;
 }
+
+Customer & Customer::operator = (Customer & dude)
+{
+  Customer tcust;
+  for(int i = 0; i < dude.numPurchases; i++)
+  {
+    tcust.purchases[i] = dude.purchases[i];
+  }
+  tcust.spendingMoney = dude.spendingMoney;
+  tcust.name = dude.name;
+  tcust.happiness = dude.happiness;
+  tcust.inclination = dude.inclination;
+  tcust.numPurchases = dude.numPurchases;
+  return tcust;
+}
+
 
 
 
