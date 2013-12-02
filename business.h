@@ -17,7 +17,8 @@ const char MAX_ITEMS = 10;
 const char MAX_CUSTOMERS = 10;
 const float ITEM_PRICE = 40;
 
-class Business{
+class Business
+{
   public:
     Business():name(""), money(0), num_items(0), num_customers(0){};
     Business(string name, float money, string f_name);
@@ -37,7 +38,7 @@ class Business{
     // Desc: Sells a random item to everyone in store if has money
     void sell_stuff();
     
-    Customer leave(Customer customers[MAX_CUSTOMERS], int num_customers);
+    void customers_leave(Customer customers[MAX_CUSTOMERS], int num_customers);
 
   private:
     string name;
