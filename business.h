@@ -45,7 +45,8 @@ class Business
     //Post: Copies customers from the customers array and then sets num_cust
     //to zero.
     //Description: All customers are removed from the business.
-    void customersLeave(Customer c[], int num);
+    void customersLeave(Customer c[], int & num);
+
 
   private:
     string name;

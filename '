@@ -23,11 +23,12 @@ bool Customer::buySomething(const Procuct & p)
     if(spendingMoney >= p.price && numPurchases < MAX_PURCHASES)
     {
       purchases[numPurchases++] = p;
-      spendingMoney -= p.price;
+      spendingMoney -= b.items[randItem].price;
+      b.money += b.items[randItem].price;
       happiness += SUCCESS_BUY;
       return true;
     }
-    else
+    if(spendingMoney < b.items[randItem].price || numPurchases > MAX_PURCHASES)
     {
       happiness -= FAILED_BUY;
       return false;

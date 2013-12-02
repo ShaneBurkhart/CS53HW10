@@ -40,16 +40,13 @@ void Business::sellStuff()
 {
   if(!this->numItems)
     return;
-  int index = rand() % this->numItems;
-  cout << "Something" << endl;
   for(int i = 0 ; i < this->numCustomers ; i ++)
   {
-    if(customers[i].getMoney() >= ITEM_PRICE &&
-      customers[i].buySomething(items[index]))
-    {
-      this->money += ITEM_PRICE;
-      customers[i].setMoney(customers[i].getMoney() - ITEM_PRICE);
-    }
+    int index = rand() % this->numItems;
+    Product p = items[index];
+
+    if(customers[i].buySomething(p))
+      this->money += p.price;
   }
   return;
 }
@@ -63,16 +60,16 @@ void Business::print()
     cout << this->items[i] << endl;
   cout << "Customers: " << endl;
   for(int i = 0 ; i < this->numCustomers ; i ++)
-    this->customers[i].print();
+    cout << this->customers[i];
   return;
 }
 
 void Business::customersLeave(Customer c[], int & num)
 {
-  for(int i = 0; i < numCusomers; i++)
+  for(int i = 0; i < numCustomers; i++)
   {
     c[num++] = customers[i];
   }
-  num_customers = 0;
+  numCustomers = 0;
   return;
 }
