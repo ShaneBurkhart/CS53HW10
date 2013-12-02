@@ -105,6 +105,21 @@ class Customer
     //post: none
     //desc: reads customers in from file and sets names and inclinations
     static void readCustomers(Customer customers[], int num_customers);
+    
+    Customer & Customer::operator=(Customer & dude)
+    {
+      Customer tcust;
+      for(int i = 0; i < dude.numPurchases; i++)
+      {
+        tcust.purchases[i] = dude.purchases[i];
+      }
+      tcust.spendingMoney = dude.spendingMoney;
+      tcust.name = dude.name;
+      tcust.happiness = dude.happiness;
+      tcust.inclination = dude.inclination;
+      tcust.numPurchases = dude.numPurchases;
+      return tcust;
+    }
 
 
 
