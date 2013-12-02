@@ -11,8 +11,10 @@
 #include "business.h"
 using namespace std;
 
-int main(){
+int main()
+{
   Customer customers[20];
+  Customer tempc[20];
   int num = 0;
 
   Customer::readCustomers(customers, 20);
