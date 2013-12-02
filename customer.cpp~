@@ -17,24 +17,22 @@ bool Customer::buySomething(const Business & b)
   int choice, randItem;
   
   choice = rand % 2; //50-50 at whether to buy or not.
-  if(choice)
+  if(choice == 0)
     return false;
-  if(!choice)
+  if(choice == 1)
   {
     randItem = (rand() % b.numItems);
-    tempMoney = getMoney();
     
-    if(tempMoney >= b.items[randItem].price || numPurchases <= MAX_PURCHASES)
+    if(spendingMoney >= b.items[randItem].price || numPurchases <= MAX_PURCHASES)
     {
       purchases[numPurchases] = b.items[randItem];
-      tempMoney -= b.items[randItem].price;
-      setMoney(tempMoney);
+      spendingMoney -= b.items[randItem].price;
       numPurchases++;
       b.money += b.items[randItem].price;
       happiness += SUCCESS_BUY;
       return true;
     }
-    if(tempMoney < b.items[randItem].price || numPurchases > MAX_PURCHASES)
+    if(spendingMoney < b.items[randItem].price || numPurchases > MAX_PURCHASES)
     {
       happiness -= FAILED_BUY;
       return false;

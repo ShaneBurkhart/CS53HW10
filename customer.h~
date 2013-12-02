@@ -19,13 +19,10 @@ const char MAX_PURCHASES = 20;
 const int MAX_MONEY = 250;
 const int MIN_MONEY = 4;
 const int MAX_HAP = 101;
-<<<<<<< HEAD
 const int SUCCESS_BUY = 15;
 const int FAILED_BUY = 10;
-=======
 const int NUM_CUSTOMERS = 20;
 const string CUSTOMER_FILE = "people.txt";
->>>>>>> 37f9a6ff1c9fbed9442a7e82a1f055fea5440ef2
 
 class Customer{
   public:
