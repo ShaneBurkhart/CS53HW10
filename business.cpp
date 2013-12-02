@@ -36,7 +36,7 @@ void Business::enterCustomer(Customer customer)
   return;
 }
 
-void Business::makeASell()
+void Business::sell_stuff()
 {
   if(!this->num_items)
     return;
@@ -66,3 +66,14 @@ void Business::print()
     this->customers[i].print();
   return;
 }
+
+void customers_leave(Customer c[], int num_customers)
+{
+  for(int i = 0; i < num_customers; i++)
+  {
+    c[i] = customers[i];
+    num_customers = 0;
+  }
+  
+  return;
+} 
