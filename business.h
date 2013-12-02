@@ -37,7 +37,7 @@ class Business
     // Post: None
     // Desc: Sells a random item to everyone in store if has money
     void sell_stuff();
-    
+
     void customers_leave(Customer customers[MAX_CUSTOMERS], int num_customers);
 
   private:
