@@ -50,6 +50,11 @@ class Customer{
     // Desc: Sets customer name
     void setName(string name);
 
+    // Pre: false is moe and true is cbg
+    // Post: none
+    // Desc: Sets customer inclination
+    void setInclination(bool inclination);
+
     // Pre: None
     // Post: Money customer has
     // Desc: Gets customer money

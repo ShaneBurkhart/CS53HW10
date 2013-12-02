@@ -38,6 +38,12 @@ void setName(string name)
   return;
 }
 
+void setInclination(bool inclination)
+{
+  this->inclination = inclination;
+  return;
+}
+
 void Customer::setMoney(const float spending_money)
 {
   this->spending_money = spending_money;
