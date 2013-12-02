@@ -68,12 +68,12 @@ void Customer::setMoney(const float spending_money)
   return;
 }
 
-void Customer::throws(const Customer & c1, const Customer & c2)
+void Customer::throws(const Customer & c)
 {
-
+  
 }
 
-void Customer::rob(const Customer & c1, const Customer & c2)
+void Customer::rob(const Customer & c)
 {
 
 }

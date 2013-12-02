@@ -82,7 +82,10 @@ class Customer{
     //post: item taken from one customer's array and added to the others.
     //desc: simulates customer robbing another customer.
     void rob(const Customer & c);
-
+    
+    //pre: none.
+    //post: customer output to screen.
+    //desc: allows you to output customer class to screen.
     friend ostream & operator << (ostream & stream, const Customer & c);
 
     //pre: Customer array with num of customers passed in
