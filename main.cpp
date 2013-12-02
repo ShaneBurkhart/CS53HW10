@@ -32,7 +32,7 @@ int main()
   {
     for(int i = 0; i < num; i++)
     {
-      if(street[i].happiness < MIN_HAP || street[i].happiness > MAX_HAP)
+      if(street[i].getHappiness < MIN_HAP || street[i].getHappiness > MAX_HAP)
       {
         street[num] = tempc[i];
         tempc[i] = street[i];
@@ -72,7 +72,7 @@ int main()
     {
       rnum = rand()%num;
     
-      if(street[i] = street[rnum])
+      if(getInclination.street[i] = getInclination.street[rnum])
       {
         street[i].rob(street[rnum])
       }
