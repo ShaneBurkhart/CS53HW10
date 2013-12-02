@@ -29,14 +29,14 @@ Business::Business(string name, float money, string f_name)
   file.close();
 }
 
-void Business::enterCustomer(Customer customer)
+void Business::addCustomer(Customer customer)
 {
   if(this->num_customers < MAX_CUSTOMERS)
     customers[this->num_customers++] = customer;
   return;
 }
 
-void Business::makeASell()
+void Business::sellStuff()
 {
   if(!this->num_items)
     return;
@@ -66,3 +66,14 @@ void Business::print()
     this->customers[i].print();
   return;
 }
+
+void customersLeave(Customer c[], int num_customers)
+{
+  for(int i = 0; i < num_customers; i++)
+  {
+    c[i] = customers[i];
+    num_customers = 0;
+  }
+  
+  return;
+} 
