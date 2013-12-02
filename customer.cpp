@@ -12,14 +12,32 @@
 #include "customer.h"
 using namespace std;
 
-
-bool Customer::buySomething(const string desc)
+bool Customer::buySomething(const Business & b)
 {
-  if(numPurchases >= MAX_PURCHASES)
+  int choice, randItem;
+
+  choice = rand % 2; //50-50 at whether to buy or not.
+  if(choice == 0)
     return false;
-  purchases[numPurchases] = desc;
-  numPurchases ++;
-  return true;
+  if(choice == 1)
+  {
+    randItem = (rand() % b.numItems);
+
+    if(spendingMoney >= b.items[randItem].price || numPurchases <= MAX_PURCHASES)
+    {
+      purchases[numPurchases] = b.items[randItem];
+      spendingMoney -= b.items[randItem].price;
+      numPurchases++;
+      b.money += b.items[randItem].price;
+      happiness += SUCCESS_BUY;
+      return true;
+    }
+    if(spendingMoney < b.items[randItem].price || numPurchases > MAX_PURCHASES)
+    {
+      happiness -= FAILED_BUY;
+      return false;
+    }
+  }
 }
 
 string Customer::getName() const
