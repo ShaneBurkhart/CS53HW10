@@ -15,25 +15,49 @@ int main()
 {  
   Business moes("Moe's Bar", 0, 20);
   Business comics("Comic Book Store, 0, 20);
+  Customer street[20];
   
   for(int i = 0; i < num_customers; i++)
   {
     if(inclination = false)
     {
-      moes.addCustomer(customer[i]);
+      moes.addCustomer(street[i]);
     }
     
     else
     {
-      comics.addCustomer(customer[i]);
+      comics.addCustomer(street[i]);
     }
   }
   
   moes.sellStuff();
   comics.sellStuff();
   
-  moes.customersLeave();
-  moes.customersLeave();
+  int num = 0;
+  
+  moes.customersLeave(street, num);
+  comics.customersLeave(street, num);
+  
+  for(int i = 0; i < num; i++)
+  {
+    rnum = rand()%num;
+    
+    tempc[i] = custs[i]
+    custs[i] = custs[rnum]
+    custs[rnum] = tempc[i]
+  }
+  
+  for(int i = 0; i < num; i++)
+  {
+    rnum = rand()%num;
+    
+    if(inclination.custs[i] = inclination.custs[rnum])
+    {
+      Customer.rob(custs[i], custs[rnum]);
+    }
+    
+    else 
+  
     
   
   
