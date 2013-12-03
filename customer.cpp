@@ -134,6 +134,7 @@ void Customer::readCustomers(Customer customers[], int num_customers)
   return;
 }
 
+
 Customer & Customer::operator = (Customer & dude)
 {
   for(int i = 0; i < dude.numPurchases; i++)
