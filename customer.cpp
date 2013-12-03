@@ -51,6 +51,11 @@ void Customer::setName(string name)
   return;
 }
 
+int Customer::getHappiness() const
+{
+  return happiness;
+}
+
 void Customer::setInclination(bool inclination)
 {
   this->inclination = inclination;
@@ -68,7 +73,7 @@ void Customer::setMoney(const float spending_money)
   return;
 }
 
-void Customer::throws(Customer & c) //c = victim
+void Customer::throwStuff(Customer & c) //c = victim
 {
   if(numPurchases != 0)
   {
@@ -96,7 +101,7 @@ void Customer::rob(Customer & c) //c = victim
   else if(numPurchases >= MAX_PURCHASES || c.numPurchases == 0)
   {
     happiness -= INTERACTION_PERP;
-  } 
+  }
   return;
 }
 
@@ -112,7 +117,7 @@ ostream & operator << (ostream & stream, const Customer & c)
 void Customer::readCustomers(Customer customers[], int num_customers)
 {
   ifstream fin;
-  fin.open(CUSTOMER_FILE);
+  fin.open("people.txt");
   for(int i = 0 ; i < num_customers ; i ++)
   {
     string name;
@@ -125,22 +130,22 @@ void Customer::readCustomers(Customer customers[], int num_customers)
       customers[i].setInclination(true);
     fin.ignore(100, '\n');
   }
+  fin.close();
   return;
 }
 
 Customer & Customer::operator = (Customer & dude)
 {
-  Customer tcust;
   for(int i = 0; i < dude.numPurchases; i++)
   {
-    tcust.purchases[i] = dude.purchases[i];
+    purchases[i] = dude.purchases[i];
   }
-  tcust.spendingMoney = dude.spendingMoney;
-  tcust.name = dude.name;
-  tcust.happiness = dude.happiness;
-  tcust.inclination = dude.inclination;
-  tcust.numPurchases = dude.numPurchases;
-  return tcust;
+  spendingMoney = dude.spendingMoney;
+  name = dude.name;
+  happiness = dude.happiness;
+  inclination = dude.inclination;
+  numPurchases = dude.numPurchases;
+  return (*this);
 }
 
 

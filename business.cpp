@@ -16,7 +16,7 @@ using namespace std;
 
 Business::Business(string name, float money, string f_name)
 {
-  this->name = name;
+  this->name = f_name;
   this->money = money;
   this->numItems = 0;
   this->numCustomers = 0;

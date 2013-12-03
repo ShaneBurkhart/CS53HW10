@@ -8,7 +8,6 @@
 
 #include<fstream>
 #include<iostream>
-#include<string>
 #include "business.h"
 #include "customer.h"
 #include "product.h"
@@ -18,21 +17,19 @@ int main()
 {
   const int MAX_HAP = 90;
   const int MIN_HAP = 10;
-  const string MOES_ITEMS = "Moe's.txt";
-  const string CGB_ITEMS = "Comic Book Guy's.txt";
-  const int NUM_CUSTOMERS = 20;
-
-  Customer street[NUM_CUSTOMERS];
+  const char MOES_ITEMS[6] = "Moe's";
+  Customer customers[NUM_CUSTOMERS];
   Customer tempc[NUM_CUSTOMERS];
   int num = NUM_CUSTOMERS;
 
-  Customer::readCustomers(street, NUM_CUSTOMERS);
+  Customer::readCustomers(customers, NUM_CUSTOMERS);
 
   for(int i = 0 ; i < NUM_CUSTOMERS ; i ++)
-    cout << street[i];
+    cout << customers[i];
 
-  Business moes("Moe's Bar", 0, MOES_ITEMS);
-  Business comics("Comic Book Store", 0, CGB_ITEMS);
+  Business moes("Moe's Bar", 0, );
+  Business comics("Comic Book Store", 0, NUM_CUSTOMERS);
+  Customer street[20];
 
   do
   {

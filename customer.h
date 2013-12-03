@@ -21,10 +21,10 @@ const int MIN_MONEY = 4;
 const int MAX_HAP = 101;
 const int SUCCESS_BUY = 15;
 const int FAILED_BUY = 10;
-const int NUM_CUSTOMERS = 20;
 const int INTERACTION_VICTIM = 20;
 const int INTERACTION_ATTEMPT = 25;
-const char CUSTOMER_FILE[11] = "people.txt";
+const int INTERACTION_PERP = 5;
+const string CUSTOMER_FILE = "people.txt";
 const int SUCCESS_THROW_PERP = 5;
 const int SUCCESS_THROW_VICTIM = 20;
 const int FAILED_THROW_PERP = 25;
@@ -86,10 +86,15 @@ class Customer
     //desc: sets the happiness of customer.
     void setHappiness(const int happiness);
 
+    //pre: between 0 - 100.
+    //post: happiness set to value.
+    //desc: sets the happiness of customer.
+    int getHappiness() const;
+
     //pre: none.
     //post: item taken from customer's array and happiness changes accordingly.
     //desc: simulates customer throwing items at another customer.
-    void throws(Customer & c);
+    void throwStuff(Customer & c);
 
     //pre: none.
     //post: item taken from one customer's array and added to the others.
@@ -106,7 +111,7 @@ class Customer
     //desc: reads customers in from file and sets names and inclinations
     static void readCustomers(Customer customers[], int num_customers);
 
-    Customer & Customer::operator = (Customer & dude);
+    Customer & operator = (Customer & dude);
 
   private:
     short numPurchases;
