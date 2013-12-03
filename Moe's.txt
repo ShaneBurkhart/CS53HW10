@@ -5,4 +5,3 @@
 0.10 peanut
 1.00 pickled egg
 20.00 dartgun
-Radioman #1

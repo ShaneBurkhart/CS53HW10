@@ -24,9 +24,15 @@ Business::Business(string name, float money, string f_name)
   file.open(f_name.c_str());
   if(!file)
     return;
-  string buffer;
-  //while(getline(file, buffer) && num_items < MAX_ITEMS)
-    //items[this->num_items++] = buffer;
+  float price;
+  while(file >> price && numItems < MAX_ITEMS)
+  {
+    Product p;
+    p.price = price;
+    file.ignore(1);
+    getline(file, p.name, '\n');
+    items[this->numItems++] = p;
+  }
   file.close();
 }
 

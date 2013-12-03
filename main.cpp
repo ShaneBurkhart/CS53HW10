@@ -9,6 +9,7 @@
 #include<fstream>
 #include<iostream>
 #include<string>
+#include<ctime>
 #include "business.h"
 #include "customer.h"
 #include "product.h"
@@ -23,8 +24,11 @@ int main()
   const int NUM_CUSTOMERS = 20;
 
   Customer street[NUM_CUSTOMERS];
-  Customer tempc[NUM_CUSTOMERS];
   int num = NUM_CUSTOMERS;
+  int count = 0;
+
+  // seed rand
+  srand(time(NULL));
 
   Customer::readCustomers(street, NUM_CUSTOMERS);
 
@@ -36,18 +40,22 @@ int main()
 
   do
   {
-    for(int i = 0; i < num; i++)
-    {
+    cout << "=========Start of Level " << count + 1 << "=========" << endl;
+
+    for(int i = 0 ; i < num ; i ++)
+    { // Leave if too happy or not happy enough
       if(street[i].getHappiness() < MIN_HAP || street[i].getHappiness() > MAX_HAP)
       {
-        street[num] = tempc[i];
-        tempc[i] = street[i];
+        cout << street[i].getName() << " falls desperately hopeless at level ";
+        cout << count + 1 << " and is shipped to Shelbyville House of ";
+        cout << "Desperation" << endl;
+        street[i] = street[num - 1];
         num--;
       }
     }
 
-    for(int i = 0; i < num; i++)
-    {
+    for(int i = 0 ; i < num ; i ++)
+    { // Customers enter stores
       if(street[i].getInclination() == false)
         moes.addCustomer(street[i]);
       else
@@ -62,18 +70,18 @@ int main()
     moes.customersLeave(street, num);
     comics.customersLeave(street, num);
 
-    for(int i = 0; i < num; i++)
-    {
-      int rnum = rand()%num;
-
-      tempc[i] = street[i];
+    for(int i = 0 ; i < num ; i ++)
+    { // Swapping function
+      int rnum = rand() % num;
+      Customer t;
+      t = street[i];
       street[i] = street[rnum];
-      street[rnum] = tempc[i];
+      street[rnum] = t;
     }
 
-    for(int i = 0; i < num; i++)
-    {
-      int rnum = rand()%num;
+    for(int i = 0 ; i < num ; i ++)
+    { // Interactions
+      int rnum = rand() % num;
 
       if(street[i].getInclination() == street[rnum].getInclination())
         street[i].rob(street[rnum]);
@@ -81,7 +89,42 @@ int main()
         street[i].throwStuff(street[rnum]);
     }
 
-  }while(num > 1);
+    cout << "=========End of Level " << count + 1 << "=========" << endl;
+
+    cout << "=========Remaining Customers=========" << endl;
+
+    for(int i = 0 ; i < num; i ++)
+      cout << street[i];
+
+    count ++;
+  }while(num > 1 && count < 20);
+
+  cout << endl;
+
+  cout << "All customers have fought honorably but only " << num;
+  cout << " survive:"<< endl;
+
+  for(int i = 0 ; i < num; i ++)
+    cout << street[i];
+
+  int moe = 0;
+  int cgb = 0;
+  for(int i = 0 ; i < num ; i ++)
+  {
+    if(street[i].getInclination() == false)
+      moe += street[i].getHappiness();
+    else
+      cgb += street[i].getHappiness();
+  }
+
+  cout << "***The winner is ";
+  if(moe > cgb)
+    cout << "Moe";
+  else
+    cout << "Comic Book Guy";
+  cout << "***" << endl;
+
+  cout << "The economy is in shambles, as there are too few customers" << endl;
 
   return 0;
 }

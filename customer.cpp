@@ -24,6 +24,7 @@ bool Customer::buySomething(const Product & p)
       purchases[numPurchases++] = p;
       spendingMoney -= p.price;
       happiness += SUCCESS_BUY;
+      cout << name << " bought " << p.name << " for $" << p.price << endl;
       return true;
     }
     else
@@ -77,9 +78,11 @@ void Customer::throwStuff(Customer & c) //c = victim
 {
   if(numPurchases != 0)
   {
-    numPurchases--;
     happiness += INTERACTION_PERP;
     c.happiness -= INTERACTION_VICTIM;
+    cout << name << " throws a " << purchases[numPurchases - 1].name << " at ";
+    cout << c.name << endl;
+    numPurchases--;
   }
   else if(numPurchases == 0)
   {
@@ -94,7 +97,9 @@ void Customer::rob(Customer & c) //c = victim
   {
     happiness += INTERACTION_ATTEMPT;
     c.happiness -= INTERACTION_VICTIM;
-    purchases[numPurchases] = c.purchases[c.numPurchases];
+    purchases[numPurchases] = c.purchases[c.numPurchases - 1];
+    cout << name << " steals a " << c.purchases[c.numPurchases - 1].name;
+    cout << " from " << c.name << endl;
     numPurchases ++;
     c.numPurchases --;
   }
@@ -107,9 +112,10 @@ void Customer::rob(Customer & c) //c = victim
 
 ostream & operator << (ostream & stream, const Customer & c)
 {
-  stream << c.name << " has $" << c.spendingMoney << " and purchases";
+  stream << c.name << " has $" << c.spendingMoney << " with " << c.happiness;
+  stream << " happiness and purchased";
   for(int i = 0; i < c.numPurchases; i++)
-    stream << " " << c.purchases[i];
+    stream << " " << c.purchases[i].name << ", ";
   stream << endl;
   return stream;
 }
