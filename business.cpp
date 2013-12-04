@@ -4,8 +4,7 @@
 //            Alec Bayliff
 // Assignment: 10 "Street Brawl"     Filename: main.cpp
 // Due Date: 11/12/13                Class: CS53, Section E
-// Desc: Header file for business class
-//
+// Desc: Function implementations for the Business class.
 
 #include<string>
 #include<iostream>
