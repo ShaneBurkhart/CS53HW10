@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////////
 // Programer: Shane Burkhart         Student ID: 99999
-//	          Brendan Nulsen
+//	      Brendan Nulsen
 //            Alec Bayliff
-// Assignment: 10 "Street Brawl"    Filename: main.cpp
+// Assignment: 10 "Street Brawl"    Filename: customer.h
 // Due Date: 12/4/13                Class: CS53, Section E
 // Desc: Header file for customer class
 
