@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////////////////////////
 // Programer: Shane Burkhart         Student ID: 99999
-// Assignment: 9 "business"          Filename: main.cpp
+//            Alec Bayliff
+// Assignment: 10 "Street Brawl"          Filename: main.cpp
 // Due Date: 11/12/13                Class: CS53, Section E
-// Desc: Program that tests the business and customer classes
-//
+// Desc: Header file for the Product class
 
 #ifndef PRODUCT_H
 #define PRODUCT_H
