@@ -91,10 +91,10 @@ int main()
 
     cout << "=========End of Level " << count + 1 << "=========" << endl;
 
-    cout << "=========Remaining Customers=========" << endl;
+    //cout << "=========Remaining Customers=========" << endl;
 
     for(int i = 0 ; i < num; i ++)
-      cout << street[i];
+      ;//cout << street[i];
 
     count ++;
   }while(num > 1 && count < 20);

@@ -24,7 +24,7 @@ bool Customer::buySomething(const Product & p)
       purchases[numPurchases++] = p;
       spendingMoney -= p.price;
       happiness += SUCCESS_BUY;
-      cout << name << " bought " << p.name << " for $" << p.price << endl;
+      //cout << name << " bought " << p.name << " for $" << p.price << endl;
       return true;
     }
     else
